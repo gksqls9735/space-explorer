@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPACE EXPLORER</title>
+  <script src="https://kit.fontawesome.com/8ff6876d96.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="site.css">
+  <script src="site.js"></script>
+</head>
+
+<body>
+  <form action="#">
+    <header>
+      <div>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchbox"
+         size="20" minlength="2" maxlength="15" 
+         placeholder="Search...">  
+      </div>
+      <img id="logo" src="logo.webp" alt="로고">
+      <ul>
+        <li class="menu"><a href="#">Home</a></li>
+        <li class="menu"><a href="#">Sitemap</a></li>
+      </ul>
+    </header>
+    <nav>
+      <ul>
+        <li class="menu">
+          <a href="#">우주 뉴스</a>
+          <div class="submenu">
+            <a href="#">최신 뉴스</a>
+            <a href="#">발사 일정</a>
+            <a href="#">연구 결과</a>
+          </div>
+        </li>
+        <li class="menu">
+          <a href="#">천체 관측</a>
+          <div class="submenu">
+            <a href="#">별자리</a>
+            <a href="#">행성</a>
+            <a href="#">혜성</a>
+          </div>
+        </li>
+        <li class="menu">
+          <a href="#">미션 및 탐사</a>
+          <div class="submenu">
+            <a href="#">NASA</a>
+            <a href="#">ESA</a>
+
+          </div>
+        </li>
+        <li class="menu">
+          <a href="#">우주 과학</a>
+          <div class="submenu">
+            <a href="#">우주 물리학</a>
+            <a href="#">천문학</a>
+            <a href="#">우주 생물학</a>
+          </div>
+        </li>
+        <li class="menu">
+          <a href="#">인터랙티브 피처</a>
+          <div class="submenu">
+            <a href="#">VR 우주여행</a>
+            <a href="#">우주 시뮬레이션</a>
+          </div>
+        </li>
+        <li class="menu">
+          <a href="#">커뮤니티</a>
+          <div class="submenu">
+            <a href="#">자유 게시판</a>
+            <a href="#">건의 게시판</a>
+            <a href="#">Q&A</a>
+          </div>
+        </li>
+        <li class="member" onclick="signInVis()">
+          <a href="#" id="signinbut">회원가입</a>
+        </li>
+        <li class="member" onclick="loginVis()">
+          <a href="#">로그인</a>
+        </li>
+      </ul>
+    </nav>
+    <section>
+      <div>
+        <img src="logo.webp" alt="">
+      </div>
+      <div>
+        <div id="login">
+          <span>울랄라</span>
+        </div>
+        <div id="signin">
+          <form action="#" method="post">
+            <table>
+              <tr>
+                <td class="td1">
+                  <label for="memberID">사용자ID <span class="re">★</span></label>
+                </td>
+                <td class="td2">
+                  <input onkeyup="idCheck()"
+                    type="text"
+                    name="memberID"
+                    id="memberID"
+                    required
+                    size="20"
+                    maxlength="20"
+                  />
+                  <button type="button">ID중복확인</button><br>
+                  <span id="memberIDInfo"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="td1">
+                  <label for="memberPW">비밀번호 <span class="re">★</span></label>
+                </td>
+                <td class="td2">
+                  <input onkeyup="pwCheck()"
+                    type="password"
+                    name="memberPW"
+                    id="memberPW"
+                    required
+                    size="20"
+                    maxlength="16"
+                    minlength="8"
+                  /> <span id="memberPWInfo"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="td1">
+                  <label for="pwComfirm"
+                    >비밀번호 확인 <span class="re">★</span></label
+                  >
+                </td>
+                <td class="td2">
+                  <input onkeyup="pwComCheck()"
+                    type="password"
+                    name="pwComfirm"
+                    id="pwComfirm"
+                    required
+                    size="20"
+                    maxlength="20"
+                  /><br>
+                  <span id="pwComfirmInfo"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="td1">
+                  <label for="memberName">성명 <span class="re">★</span></label>
+                </td>
+                <td class="td2">
+                  <input onkeyup="nameCheck()"
+                    type="text"
+                    name="memberName"
+                    id="memberName"
+                    required
+                    size="20"
+                    maxlength="20"
+                  /><br>
+                  <span id="memberNameInfo" style="color: rgb(190, 190, 190)"
+                    ></span
+                  >
+                </td>
+                </td>
+              </tr>
+              <tr>
+                <td class="td1">
+                  <label for="memberEmail">E-mail <span class="re">★</span></label>
+                </td>
+                <td class="td2">
+                  <input onkeyup="emailCheck()"
+                    type="email"
+                    name="memberEmail"
+                    id="memberEmail"
+                    required
+                    size="30"
+                    maxlength="30"
+                  /><br>
+                  <span  style="color: rgb(190, 190, 190)">메일 수신여부<br>* 할인 이벤트 정보 및 할인쿠폰, 관심분야 등 필요한 정보를 빠르게 받아보실 수 있습니다 <br>
+                  * 비밀번호 분실시 E-mail로 확인해드리니, <span style="color: green;">정확한 E-mail주소를 기입</span>해주세요.</span><br>
+                  <span id="memberEmailInfo"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="td1">
+                  <label for="postNum">우편번호 <span class="re">★</span></label>
+                </td>
+                <td class="td2">
+                  <input
+                    type="text"
+                    name="postNum"
+                    id="postNum"
+                    required
+                    size="4"
+                    maxlength="5"
+                  /> - <input
+                  type="text"
+                  name="postNum2"
+                  id="postNum2"
+                  required
+                  size="4"
+                  maxlength="5"
+                />
+                  <button type="button">우편번호 검색</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="td1">
+                  <label for="address">주소 <span class="re">★</span></label>
+                </td>
+                <td class="td2">
+                  <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    size="50"
+                    maxlength="50"
+                  /> <br> 
+                  <input
+                  type="text"
+                  name="address2"
+                  id="address2"
+                  size="50"
+                  maxlength="50"
+                />
+                </td>
+              </tr>
+              <tr>
+                <td class="td1">
+                  <label for="phoneNum">휴대번호 <span class="re">★</span></label>
+                </td>
+                <td class="td2">
+                  <input onkeyup="phoneCheck()"
+                    type="tel"
+                    name="phoneNum"
+                    id="phoneNum"
+                    required
+                    size="20"
+                    maxlength="15"
+                    placeholder="010-1111-1111"
+                  /><br> 
+                  <span id="phoneNumInfo"></span>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align: center; padding: 10px 0">
+                  <button type="submit" onclick="allCheck(event)">전송</button>
+                </td>
+              </tr>
+            </table>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div>
+        <a href="">다운로드</a>
+        <a href="">개인정보처리방침</a>
+        <a href="">저작권지침및신고</a>
+        <a href="">이메일무단수집거부</a>
+      </div>
+      <div>
+        <p>왕십리캠퍼스 : 서울시 성동구 무학로2길 54 신방빌딩 4,5층 tel:12-345-7890</p>
+        <p>Copyright <span>ⓒ</span> 2018 mrhi, Inc. All right reserved. Contact webmaster for more information. 23-455-1234</p>
+      </div>
+    </footer>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+body{
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+form{
+  width: 100%;
+  height: 100%;
+}
+a{
+  text-decoration: none;
+  color: black;
+  font-weight: 900;
+}
+
+ul{
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+li>a{
+  display: block;
+  padding: 10px 15px;
+}
+/* 헤더 */
+header{
+  height: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background-color: #0A1816;
+}
+header input {
+  background-color: #0A1816;
+  border: 1px solid grey;
+  height: 20px;
+}
+header i {
+  color: white;
+  font-size: 20px;
+  padding-left: 15px;
+}
+header>img{
+  transition: all 0.3s ease;
+  display: block;
+  margin: 10px auto 0px auto;
+  width: 100px;
+  height: 100px;
+}
+header>img:hover {
+  transform: scale(1.1);
+}
+header>ul{
+  display: flex;
+  position: relative;
+}
+header a{
+  color: white;
+}
+header>ul>li>a:hover{
+  color: gray;
+}
+/* 메뉴 */
+nav{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+nav>ul{
+  height: 100px;
+  height: auto;
+  position: relative;
+  top: 16px;
+}
+nav>ul>li{
+  border-bottom: 2px solid white;
+  display: inline-block;
+}
+.submenu{
+  background-color: white;
+  position: absolute;
+  display: none;
+  margin-top: 2px;
+}
+.submenu > a{
+  display: block;
+  padding: 10px 15px;
+}
+.submenu > a:hover{
+  color: rgb(8, 89, 196);
+}
+li:hover .submenu{
+  display: block;
+}
+li.member{
+  float: right;
+  font-size: 13px;
+  margin-right: 10px;
+  padding: 0px;
+}
+li.member>a{
+  border: 2px solid rgb(0, 55, 128);
+  border-radius: 50px;
+  color: rgb(0, 55, 128);
+}
+li.member>a:hover{
+  color: rgb(197, 5, 5);
+  border: 2px solid rgb(197, 5, 5);
+}
+nav li.menu:hover {
+  border-bottom: 2px solid rgb(0, 55, 128);
+}
+/* 섹션 */
+section{
+  height: 65%;
+  border-bottom: 2px solid rgb(194, 194, 194);
+  border-top: 2px solid rgb(194, 194, 194);
+} 
+section > div:first-child{
+  width: 100%;
+  height: 50%;
+  border: 1px solid red;
+  text-align: center;
+}
+section > div > img{
+  width: 50%;
+  height: 50%;
+}
+#login{
+  display: none;
+}
+#signin{
+  display: none;
+}
+/* 로그인 */
+
+/* 회원가입 */
+table {
+  width: 50%;
+}
+table td.td1 {
+  width: 20%;
+  padding: 10px 0px 10px 10px;
+  background-color: rgb(226, 226, 226);
+}
+table td.td2 {
+  width: 80%;
+  padding: 10px 0;
+}
+table td {
+  border-bottom: 1px solid rgb(209, 209, 209);
+}
+span.re {
+  color: red;
+  font-size: 10px;
+}
+/* 푸터 */
+footer{
+  font-size: 14px;
+  background-color: #0A1816;
+}
+footer > div:nth-child(1){
+  padding: 10px 100px;
+  border-bottom: 1px solid white;
+}
+footer a{
+  padding-right: 20px;
+  color: white;
+}
+footer a:hover{
+  color: grey;
+}
+footer p{
+  padding: 10px 100px;
+  color: gray;
+}
