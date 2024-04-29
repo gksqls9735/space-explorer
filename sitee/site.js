@@ -39,19 +39,25 @@ function call_js(){
     timer = setInterval(()=>{
       let index = (currentIndex+1)%slideCount;
       gotoSlide(index)
-    }, 5000);
+    }, 3000);
   }
   startTime();
   //이벤트 처리 마우스 올리면 멈추기 내리면 다시 회전 시작
-  slideshow_sildes.addEventListener("mouseenter", ()=>{
+  slideshow_sildes.addEventListener("mouseenter", function(){
     clearInterval(timer);
   })
-  slideshow_sildes.addEventListener("mouseleave",()=>{
+  slideshow_sildes.addEventListener("mouseleave",function(){
     startTime();
   })
   
   //화살표 이벤트 처리
-  prev.addEventListener("click", e=>{
+  prev.addEventListener("mouseover", function(){
+    clearInterval(timer);
+    })
+  next.addEventListener("mouseover", function(){
+    clearInterval(timer);
+  })
+  prev.addEventListener("click", (e)=>{
     //a의 기능을 막아줌
     e.preventDefault();
     currentIndex -= 1;
@@ -61,7 +67,7 @@ function call_js(){
     }
     gotoSlide(currentIndex);
   })
-  next.addEventListener("click", e=>{
+  next.addEventListener("click", (e)=>{
     //a기능 막기
     e.preventDefault();
     currentIndex += 1;
