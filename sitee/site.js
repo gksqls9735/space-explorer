@@ -86,7 +86,7 @@ function allCheck(event) {
 }
 function signInVis(){
   const signin = document.querySelector("#signin");
-
+  const slideshow = document.querySelector(".slideshow");
   if (signin.style.display === 'none') {
     signin.style.display = 'block';
   }else{
