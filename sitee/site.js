@@ -103,3 +103,32 @@ function loginVis() {
     login.style.display = 'none';
   }
 }
+function postSearch() {
+  new daum.Postcode({
+    oncomplete: function(data){
+      let addr = '';
+      let extraAddr = '';
+
+      if (data.userSelectedType === 'R') {
+        addr = data.roadArredss;
+      }else{
+        addr = data.jibunAddress;
+      }
+
+      if (data.userSelectedType === 'R') {
+        if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+          extraAddr += data.bname;
+        }
+        if (data.buildingName !== '' && data.apartment === 'Y') {
+          extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+        }
+        if (extraAddr !== '') {
+          extraAddr = ' (' + extraAddr + ')';
+        }
+        document.querySelector("#postcode").value = data.zonecode;
+        document.querySelector("#address").value = addr;
+        document.querySelector("#detailAddress").value.focus();
+      }
+    }
+  }).open();
+}

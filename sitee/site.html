@@ -8,6 +8,7 @@
   <script src="https://kit.fontawesome.com/8ff6876d96.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="site.css">
   <script src="site.js"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 
 <body>
@@ -88,10 +89,59 @@
       </div>
       <div>
         <div id="login">
-          <span>울랄라</span>
+            <fieldset style="text-align: center">
+              <legend>로그인</legend>
+              <div>
+                <span
+                  ><input type="radio" name="member" id="member1" value="1" />
+                  <label for="member1">회원</label>
+                  <input type="radio" name="member" id="member2" value="2" />
+                  <label for="member2">비회원(주문조회)</label> </span
+                ><br />
+                <div class="textflex">
+                  <span>
+                    <label for="memberId"></label>
+                    <input
+                      type="text"
+                      name="memberId"
+                      id="memberId"
+                      size="25"
+                      minlength="6"
+                      maxlength="12"
+                      required
+                      placeholder="아이디"
+                    /><br />
+                    <label for="memberPW"></label>
+                    <input
+                      type="text"
+                      name="memberPW"
+                      id="memberPW"
+                      size="25"
+                      minlength="6"
+                      maxlength="12"
+                      required
+                      placeholder="비밀번호"
+                    />
+                  </span>
+                  <button class="loginbutton" type="button">로그인</button>
+                </div>
+                <div style="margin: 10px 0px">
+                  <span style="margin-right: 50px">
+                    <input type="checkbox" name="idSave" id="idSave" value="1" />
+                    <label for="idSave">아이디저장</label>
+                  </span>
+                  <a href="#">OTP 로그인</a>
+                  <span id="box">?</span>
+                  <div style="margin-top: 10px">
+                    <button type="button" onclick="signInVis()">회원가입</button>
+                    <button type="button">아이디 찾기</button>
+                    <button type="button">비밀번호 찾기</button>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
         </div>
         <div id="signin">
-          <form action="#" method="post">
             <table>
               <tr>
                 <td class="td1">
@@ -183,46 +233,39 @@
               </tr>
               <tr>
                 <td class="td1">
-                  <label for="postNum">우편번호 <span class="re">★</span></label>
+                  <label for="postcode">주소 <span class="re">★</span></label>
                 </td>
                 <td class="td2">
                   <input
                     type="text"
-                    name="postNum"
-                    id="postNum"
+                    name="postcode"
+                    id="postcode"
                     required
-                    size="4"
+                    size="7"
                     maxlength="5"
-                  /> - <input
-                  type="text"
-                  name="postNum2"
-                  id="postNum2"
-                  required
-                  size="4"
-                  maxlength="5"
-                />
-                  <button type="button">우편번호 검색</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="td1">
-                  <label for="address">주소 <span class="re">★</span></label>
-                </td>
-                <td class="td2">
+                  />
+                  <button type="button" onclick="postSearch()">우편번호 검색</button><br>
                   <input
                     type="text"
                     name="address"
                     id="address"
-                    size="50"
+                    size="40"
                     maxlength="50"
                   /> <br> 
                   <input
                   type="text"
-                  name="address2"
-                  id="address2"
-                  size="50"
+                  name="detailAddress"
+                  id="detailAddress"
+                  size="40"
                   maxlength="50"
-                />
+                /><br> 
+                <input
+                type="text"
+                name="extraAddress"
+                id="extraAddress"
+                size="40"
+                maxlength="50"
+              />
                 </td>
               </tr>
               <tr>
@@ -259,7 +302,7 @@
         <a href="">이메일무단수집거부</a>
       </div>
       <div>
-        <p>왕십리캠퍼스 : 서울시 성동구 무학로2길 54 신방빌딩 4,5층 tel:12-345-7890</p>
+        <p>강남지원 3관 : 서울특별시 강남구 테헤란로 130 호산빌딩 5F, 6F (T: 1544-9970)</p>
         <p>Copyright <span>ⓒ</span> 2018 mrhi, Inc. All right reserved. Contact webmaster for more information. 23-455-1234</p>
       </div>
     </footer>
