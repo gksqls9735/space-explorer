@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <script
+      src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
+      defer
+    ></script>
+    <style>
+      body {
+        width: 1200px;
+        margin: 0 auto;
+      }
+      h1 {
+        text-align: center;
+      }
+      div {
+        width: 80%;
+        margin: 20px auto;
+      }
+      p {
+        width: 100%;
+        margin: 0px auto;
+        border-top: 1px solid rgb(209, 209, 209);
+        border-bottom: 1px solid rgb(209, 209, 209);
+        padding: 20px 0;
+      }
+      form {
+        width: 80%;
+        margin: 0 auto;
+      }
+      table {
+        width: 100%;
+      }
+      table td.td1 {
+        width: 20%;
+        padding: 10px 0px 10px 10px;
+        background-color: rgb(226, 226, 226);
+      }
+      table td.td2 {
+        width: 80%;
+        padding: 10px 0;
+      }
+      table td {
+        border-bottom: 1px solid rgb(209, 209, 209);
+      }
+      span.re {
+        color: red;
+        font-size: 10px;
+      }
+    </style>
+    <script>
+      function idCheck(){
+        const memberID = document.querySelector("#memberID");
+        const memberIDInfo = document.querySelector("#memberIDInfo");
+        let idExp = /^[a-z]+[a-z0-9]{5,19}$/g;
+        
+        if (!memberID.value.match(idExp)) {
+          memberIDInfo.innerHTML = `영소문자 또는 0~9까지 5~19자 사이로 연속되어있어야 합니다.`;
+          return false;
+        }else{
+          memberIDInfo.innerHTML = `사용가능한 아이디입니다.`;
+          return true;
+        }
+      }
+      function pwCheck(){
+        const memberPW = document.querySelector("#memberPW");
+        const memberPWInfo = document.querySelector("#memberPWInfo");
+        let pwExp = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+
+        if (!memberPW.value.match(pwExp)) {
+          memberPWInfo.innerHTML = `영어, 숫자, 특수문자를 포함하여 8~16자 입력해주세요`;
+          return false;
+        }else{
+          memberPWInfo.innerHTML = `사용가능한 비밀번호입니다.`;
+          return true;
+        }
+      }
+      function pwComCheck(){
+        const pwComfirm = document.querySelector("#pwComfirm");
+        const pwComfirmInfo = document.querySelector("#pwComfirmInfo");
+        const memberPW = document.querySelector("#memberPW")
+        
+        if (!pwComfirm.value.match(memberPW.value)) {
+          pwComfirmInfo.innerHTML = `비밀번호가 일치하지 않습니다.`;
+          return false;
+        }else{
+          pwComfirmInfo.innerHTML = `비밀번호가 일치합니다`;
+          return true;
+        }
+      }
+      function nameCheck(){
+        const memberName = document.querySelector("#memberName");
+        const memberNameInfo = document.querySelector("#memberNameInfo");
+        let nameExp = /^[가-힣]{2,4}$/;
+
+        if (!memberName.value.match(nameExp)) {
+          memberNameInfo.innerHTML = `띄어쓰기 없이 입력, 반드시 실명이어야 합니다.`;
+          return false;
+        }else{
+          memberNameInfo.innerHTML = `GOOD`;
+          return true;
+        }
+      }
+      function emailCheck(){
+        const memberEmail = document.querySelector("#memberEmail");
+        const memberEmailInfo = document.querySelector("#memberEmailInfo");
+        let emailExp =/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+
+        if (!memberEmail.value.match(emailExp)) {
+          memberEmailInfo.innerHTML = `이메일 형식에 맞게 입력해주세요.`;
+          return false;
+        }else{
+          memberEmailInfo.innerHTML = `GOOD`;
+          return true;
+        }
+      }
+      function phoneCheck(){
+        const phoneNum = document.querySelector("#phoneNum");
+        const phoneNumInfo = document.querySelector("#phoneNumInfo");
+        let phoneExp = /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/g;
+
+        if (!phoneNum.value.match(phoneExp)) {
+          phoneNumInfo.innerHTML = `-, 숫자(0~9)를 포함하여 형식에 맞게 입력해주세요`;
+          return false;
+        }else{
+          phoneNumInfo.innerHTML = `GOOD`;
+          return true;
+        }
+      }
+      function allCheck(event) {
+        if (idCheck() && pwCheck()&& pwComCheck() &&nameCheck()&&phoneCheck()) {
+          alert("회원가입 성공");
+        }else{
+          alert("입력한 내용을 확인해주세요.");
+          event.preventDefault();
+        }
+      }
+      function postSearch() {
+         new daum.Postcode({
+          oncomplete: function(data){
+           let addr = '';
+           let extraAddr = '';
+
+          if (data.userSelectedType === 'R') {
+            addr = data.roadArredss;
+          }else{
+            addr = data.jibunAddress;
+          }
+
+          if (data.userSelectedType === 'R') {
+            if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+              extraAddr += data.bname;
+            }
+            if (data.buildingName !== '' && data.apartment === 'Y') {
+              extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+            }
+            if (extraAddr !== '') {
+              extraAddr = ' (' + extraAddr + ')';
+            }
+            document.querySelector("#postcode").value = data.zonecode;
+            document.querySelector("#address").value = addr;
+            document.querySelector("#detailAddress").value.focus();
+         }
+    }
+  }).open();
+}
+      </script>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <div>
+      <span><span class="re">●</span> 온라인 회원가입작성</span>
+      <p>고객님의 정보는 개인정보보호정책에 의해 철저하게 보호됩니다.</p>
+    </div>
+    <form action="#" method="post">
+      <table>
+        <tr>
+          <td class="td1">
+            <label for="memberID">사용자ID <span class="re">★</span></label>
+          </td>
+          <td class="td2">
+            <input onkeyup="idCheck()"
+              type="text"
+              name="memberID"
+              id="memberID"
+              required
+              size="20"
+              maxlength="20"
+            />
+            <button type="button">ID중복확인</button><br>
+            <span id="memberIDInfo"></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="td1">
+            <label for="memberPW">비밀번호 <span class="re">★</span></label>
+          </td>
+          <td class="td2">
+            <input onkeyup="pwCheck()"
+              type="password"
+              name="memberPW"
+              id="memberPW"
+              required
+              size="20"
+              maxlength="16"
+              minlength="8"
+            /> <span id="memberPWInfo"></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="td1">
+            <label for="pwComfirm"
+              >비밀번호 확인 <span class="re">★</span></label
+            >
+          </td>
+          <td class="td2">
+            <input onkeyup="pwComCheck()"
+              type="password"
+              name="pwComfirm"
+              id="pwComfirm"
+              required
+              size="20"
+              maxlength="20"
+            /><br>
+            <span id="pwComfirmInfo"></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="td1">
+            <label for="memberName">성명 <span class="re">★</span></label>
+          </td>
+          <td class="td2">
+            <input onkeyup="nameCheck()"
+              type="text"
+              name="memberName"
+              id="memberName"
+              required
+              size="20"
+              maxlength="20"
+            /><br>
+            <span id="memberNameInfo" style="color: rgb(190, 190, 190)"
+              ></span
+            >
+          </td>
+          </td>
+        </tr>
+        <tr>
+          <td class="td1">
+            <label for="memberEmail">E-mail <span class="re">★</span></label>
+          </td>
+          <td class="td2">
+            <input onkeyup="emailCheck()"
+              type="email"
+              name="memberEmail"
+              id="memberEmail"
+              required
+              size="30"
+              maxlength="30"
+            /><br>
+            <span  style="color: rgb(190, 190, 190)">메일 수신여부<br>* 할인 이벤트 정보 및 할인쿠폰, 관심분야 등 필요한 정보를 빠르게 받아보실 수 있습니다 <br>
+            * 비밀번호 분실시 E-mail로 확인해드리니, <span style="color: green;">정확한 E-mail주소를 기입</span>해주세요.</span><br>
+            <span id="memberEmailInfo"></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="td1">
+            <label for="postcode">주소 <span class="re">★</span></label>
+          </td>
+          <td class="td2">
+            <input
+              type="text"
+              name="postcode"
+              id="postcode"
+              required
+              size="7"
+              maxlength="5"
+            />
+            <button type="button" onclick="postSearch()">우편번호 검색</button><br>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              size="40"
+              maxlength="50"
+            /> <br> 
+            <input
+            type="text"
+            name="detailAddress"
+            id="detailAddress"
+            size="40"
+            maxlength="50"
+          /><br> 
+          <input
+          type="text"
+          name="extraAddress"
+          id="extraAddress"
+          size="40"
+          maxlength="50"
+        />
+          </td>
+        </tr>
+        <tr>
+          <td class="td1">
+            <label for="phoneNum">휴대번호 <span class="re">★</span></label>
+          </td>
+          <td class="td2">
+            <input onkeyup="phoneCheck()"
+              type="tel"
+              name="phoneNum"
+              id="phoneNum"
+              required
+              size="20"
+              maxlength="15"
+              placeholder="010-1111-1111"
+            /><br> 
+            <span id="phoneNumInfo"></span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center; padding: 10px 0">
+            <button type="submit" onclick="allCheck(event)">전송</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset style="text-align: center">
+        <legend>로그인</legend>
+        <div>
+          <span
+            ><input type="radio" name="member" id="member1" value="1" />
+            <label for="member1">회원</label>
+            <input type="radio" name="member" id="member2" value="2" />
+            <label for="member2">비회원(주문조회)</label> </span
+          ><br />
+          <div class="textflex">
+            <span>
+              <label for="memberId"></label>
+              <input
+                type="text"
+                name="memberId"
+                id="memberId"
+                size="25"
+                minlength="6"
+                maxlength="12"
+                required
+                placeholder="아이디"
+              /><br />
+              <label for="memberPW"></label>
+              <input
+                type="text"
+                name="memberPW"
+                id="memberPW"
+                size="25"
+                minlength="6"
+                maxlength="12"
+                required
+                placeholder="비밀번호"
+              />
+            </span>
+            <button class="loginbutton" type="button">로그인</button>
+          </div>
+          <div style="margin: 10px 0px">
+            <span style="margin-right: 50px">
+              <input type="checkbox" name="idSave" id="idSave" value="1" />
+              <label for="idSave">아이디저장</label>
+            </span>
+            <a href="#">OTP 로그인</a>
+            <a
+              href="https://support.google.com/accounts/answer/1066447?hl=ko&co=GENIE.Platform%3DAndroid"
+              target="_blank"
+              ><button id="box" type="button">?</button></a
+            >
+            <div style="margin-top: 10px">
+              <button type="button" onclick="signInVis()">회원가입</button>
+              <button type="button">아이디 찾기</button>
+              <button type="button">비밀번호 찾기</button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>
