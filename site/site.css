@@ -25,7 +25,7 @@ li>a{
 header{
   height: 130px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #0A1816;
 }
@@ -39,14 +39,14 @@ header i {
   font-size: 20px;
   padding-left: 15px;
 }
-header>img{
+header img{
   transition: all 0.3s ease;
   display: block;
   margin: 10px auto 0px auto;
   width: 100px;
   height: 100px;
 }
-header>img:hover {
+header img:hover {
   transform: scale(1.1);
   box-shadow: 0 0 20px gray;
 }
@@ -75,7 +75,7 @@ nav>ul{
   position: relative;
   top: 16px;
   z-index: 2;
-  /* relative해서 제일 */
+  /* relative해서 제일 위에*/
 }
 nav>ul>li{
   border-bottom: 2px solid white;
@@ -128,6 +128,7 @@ div.slideshow{
   height: 465px;
   min-width: 960px;
   position: relative;
+  display: block;
 }
 div.slideshow_slides{
   position: absolute;
@@ -179,6 +180,9 @@ div.indicator a.active{
   display: none;
 }
 #signin{
+  display: none;
+}
+#board{
   display: none;
 }
 /* 로그인, 회원가입 */

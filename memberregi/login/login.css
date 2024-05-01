@@ -22,3 +22,6 @@ div.textflex > button{
   border-radius: 5px;
   padding: 0px 6px;
 }
+.loginbutton:hover{
+  background-color: rgb(148, 0, 0);
+}

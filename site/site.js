@@ -177,22 +177,58 @@ function allCheck(event) {
   }
 }
 function signInVis(){
-  const signin = document.querySelector("#signin");
   const slideshow = document.querySelector(".slideshow");
+  const signin = document.querySelector("#signin");
+  const login = document.querySelector("#login");
+  const board = document.querySelector("#board");
+  
   if (signin.style.display === 'none') {
+    slideshow.style.display = 'none';
     signin.style.display = 'block';
+    login.style.display = 'none';
+    board.style.display = 'none';
   }else{
+    slideshow.style.display = 'block';
     signin.style.display = 'none';
+    login.style.display = 'none';
+    board.style.display = 'none';
   }
 }
 function loginVis() {
-
+  const slideshow = document.querySelector(".slideshow");
+  const signin = document.querySelector("#signin");
   const login = document.querySelector("#login");
+  const board = document.querySelector("#board");
 
   if (login.style.display === 'none') {
+    slideshow.style.display = 'none';
+    signin.style.display = 'none';
     login.style.display = 'block';
+    board.style.display = 'none';
   }else{
+    slideshow.style.display = 'block';
+    signin.style.display = 'none';
     login.style.display = 'none';
+    board.style.display = 'none';
+  }
+}
+
+function boardVis(){
+  const slideshow = document.querySelector(".slideshow");
+  const signin = document.querySelector("#signin");
+  const login = document.querySelector("#login");
+  const board = document.querySelector("#board");
+
+  if (board.style.display === 'none') {
+    slideshow.style.display = 'none';
+    signin.style.display = 'none';
+    login.style.display = 'none';
+    board.style.display = 'block';
+  }else{
+    slideshow.style.display = 'block';
+    signin.style.display = 'none';
+    login.style.display = 'none';
+    board.style.display = 'none';
   }
 }
 function postSearch() {

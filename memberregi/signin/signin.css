@@ -1,0 +1,41 @@
+body {
+  width: 1200px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+}
+div {
+  width: 80%;
+  margin: 20px auto;
+}
+p {
+  width: 100%;
+  margin: 0px auto;
+  border-top: 1px solid rgb(209, 209, 209);
+  border-bottom: 1px solid rgb(209, 209, 209);
+  padding: 20px 0;
+}
+form {
+  width: 80%;
+  margin: 0 auto;
+}
+table {
+  width: 100%;
+}
+table td.td1 {
+  width: 20%;
+  padding: 10px 0px 10px 10px;
+  background-color: rgb(226, 226, 226);
+}
+table td.td2 {
+  width: 80%;
+  padding: 10px 0;
+}
+table td {
+  border-bottom: 1px solid rgb(209, 209, 209);
+}
+span.re {
+  color: red;
+  font-size: 10px;
+}

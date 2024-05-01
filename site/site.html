@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="site.css" />
-    <script src="site.js"></script>
+    <script src="site.js" defer></script>
     <script
       src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
       defer
@@ -30,7 +30,9 @@
             placeholder="Search..."
           />
         </div>
-        <img id="logo" src="../img/logo.webp" alt="로고" />
+        <a href="./site.html">
+          <img id="logo" src="../img/logo.webp" alt="로고" />
+        </a>
         <ul>
           <li class="menu"><a href="#">Home</a></li>
           <li class="menu"><a href="#">Sitemap</a></li>
@@ -59,8 +61,8 @@
           <li class="menu">
             <a href="#">미션 및 탐사</a>
             <div class="submenu">
-              <a href="#">NASA</a>
-              <a href="#">ESA</a>
+              <a href="https://www.nasa.gov/" target="_blank">NASA</a>
+              <a href="https://www.esa.int/" target="_blank">ESA</a>
             </div>
           </li>
           <li class="menu">
@@ -87,7 +89,7 @@
           <li class="menu">
             <a href="#">커뮤니티</a>
             <div class="submenu">
-              <a href="#">자유 게시판</a>
+              <a href="#" onclick="boardVis()">자유 게시판</a>
               <a href="#">건의 게시판</a>
               <a href="#">Q&A</a>
             </div>
@@ -167,6 +169,14 @@
             >
               https://nid.naver.com/user2/join/agree?lang=ko_KR&domain=null
             </object>
+          </div>
+          <div id="board">
+            <object data="../board/board.html" 
+            width="1400px" 
+            height="700px"
+            >
+            https://naver.worksmobile.com/feature/board/
+          </object>
           </div>
         </div>
       </section>
