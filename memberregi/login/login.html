@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="login.css" />
+    <script src="login.js"></script>
   </head>
   <body>
     <form action="#" method="post">
@@ -32,7 +33,7 @@
               /><br />
               <label for="memberPW"></label>
               <input
-                type="text"
+                type="password"
                 name="memberPW"
                 id="memberPW"
                 size="25"
@@ -42,7 +43,13 @@
                 placeholder="비밀번호"
               />
             </span>
-            <button class="loginbutton" type="button">로그인</button>
+            <button
+              class="loginbutton"
+              type="submit"
+              onclick="infoCheck(event)"
+            >
+              로그인
+            </button>
           </div>
           <div style="margin: 10px 0px">
             <span style="margin-right: 50px">
@@ -56,7 +63,7 @@
               ><button id="box" type="button">?</button></a
             >
             <div style="margin-top: 10px">
-              <button type="button" onclick="signInVis()">회원가입</button>
+              <button type="button">회원가입</button>
               <button type="button">아이디 찾기</button>
               <button type="button">비밀번호 찾기</button>
             </div>
